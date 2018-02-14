@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="faktura.xsl"?>
+<faktura>
+    <zaglavljeFakture>
+        <nazivDobavljaca>Firma001</nazivDobavljaca>
+        <adresaDobavljaca>Dimitrija Tucovica 1</adresaDobavljaca>
+        <PIBDobavljaca>11111111111</PIBDobavljaca>
+        <nazivKupca>Firma002</nazivKupca>
+        <adresaKupca>Toze Veselinovica 14</adresaKupca>
+        <PIBKupca>22222222222</PIBKupca>
+        <brojRacuna>BBB222222222222299</brojRacuna>
+        <datumRacuna>2018-02-12</datumRacuna>
+        <vrednostRobe>132.25</vrednostRobe>
+        <vrednostUsluga>78</vrednostUsluga>
+        <ukupnoRobaIUsluge>201.25</ukupnoRobaIUsluge>
+        <ukupanRabat>20</ukupanRabat>
+        <ukupanPorez>50</ukupanPorez>
+        <oznakaValute>RSD</oznakaValute>
+        <iznosZaUplatu>300.25</iznosZaUplatu>
+        <uplataNaRacun>AAA111111111111199</uplataNaRacun>
+        <datumValute>2018-02-12</datumValute>
+    </zaglavljeFakture>
+    <stavkaFakture>
+        <redniBroj>123</redniBroj>
+        <nazivRobeIliUsluge>PSENICA</nazivRobeIliUsluge>
+        <kolicina>75.2</kolicina>
+        <jedinicaMere>kg</jedinicaMere>
+        <jedinicnaCena>120</jedinicnaCena>
+        <vrednost>7500</vrednost>
+        <procenatRabata>8</procenatRabata>
+        <iznosRabata>100</iznosRabata>
+        <umanjenoZaRabat>100</umanjenoZaRabat>
+        <ukupanPorez>360</ukupanPorez>
+    </stavkaFakture>
+</faktura>

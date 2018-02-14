@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="nalog.xsl"?>
+<nalog xmlns="http://nalog.com">
+    <idPoruke>id111</idPoruke>
+    <duznik>Firma001</duznik>
+    <svrhaPlacanja>placanje</svrhaPlacanja>
+    <primalac>Firma002</primalac>
+    <datumNaloga>2018-01-25</datumNaloga>
+    <datumValute>2018-01-25</datumValute>
+    <racunDuznika>AAA111111111111199</racunDuznika>
+    <modelZaduzenja>97</modelZaduzenja>
+    <pozivNaBrojZaduzenja>85645678912345678911</pozivNaBrojZaduzenja>
+    <racunPrimaoca>BBB222222222222299</racunPrimaoca>
+    <modelOdobrenja>97</modelOdobrenja>
+    <pozivNaBrojOdobrenja>85622222222222222222</pozivNaBrojOdobrenja>
+    <iznos>999.99</iznos>
+    <oznakaValute>rsd</oznakaValute>
+    <hitno>false</hitno>
+</nalog>

@@ -1,0 +1,34 @@
+<div class = "col-sm-4">
+
+<div ng-init="findAllNaloge()">
+<table class="table table-bordered" border="1">
+		<tbody>
+			<tr>
+				<th>Duznik</th>
+				<th>Primalac</th>
+				<th>Datum naloga</th>
+				<th>Racun primaoca</th>
+				<th>Iznos</th>
+				<th>Oznaka valute</th>
+
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+			<tr ng-repeat="nalog in allNalozi">
+				<td>{{nalog.duznik}}</td>
+				<td>{{nalog.primalac}}</td>
+				<td>{{nalog.datumNaloga}}</td>
+				<td>{{nalog.racunPrimaoca}}</td>
+				<td>{{nalog.iznos}}</td>
+				<td>{{nalog.oznakaValute}}</td>
+				<td><button class = "btn btn-default" ng-click = "createHTMLNalog(nalog)" ><span class = "glyphicon glyphicon-th"></span> Detalji</button> 
+				<td><button class = "btn btn-default" ng-click = "createPDFNalog(nalog)" ><span class = "glyphicon glyphicon-tasks"></span> PDF</button> 
+				</td>			
+			</tr>
+		</tbody>
+	</table>
+
+
+</div>
+<div ui-view></div>
+</div>

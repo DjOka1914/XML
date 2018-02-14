@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<getMT900Response xmlns="http://mt900.com">
+    <MT900>
+        <idPoruke>0fac4386-98ef-47d4-ba47-6b76611a6d8b</idPoruke>
+        <swiftKodBankeDuznika>AAAIOI11</swiftKodBankeDuznika>
+        <obracunskiRacunBankeDuznika>QQQ777777777777777</obracunskiRacunBankeDuznika>
+        <idPorukeNaloga>596037f4-d9bb-4837-a830-08769c681557</idPorukeNaloga>
+        <datumValute>2018-02-13</datumValute>
+        <iznos>300100</iznos>
+        <sifraValute>rsd</sifraValute>
+    </MT900>
+</getMT900Response>

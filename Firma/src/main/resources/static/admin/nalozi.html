@@ -1,0 +1,40 @@
+<input type="date" id = "startDatum">
+
+<button  ng-click = "findPreseke()" class = "glyphicon glyphicon-search"></button>
+<button  ng-click = "findPresekeNext()" class = "glyphicon glyphicon-arrow-right"></button>
+
+<div style = "width:50%">
+	<label>Broj racuna</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.ZaglavljePreseka.brojRacuna" ></input>
+	<label>Prethodno stanje</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.ZaglavljePreseka.prethodnoStanje" ></input>
+	<label>Ukupno u korist</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.ZaglavljePreseka.ukupnoUKorist" ></input>
+	<label>Ukupno na teret</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.ZaglavljePreseka.ukupnoNaTeret" ></input>
+	<label>Novo stanje</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.ZaglavljePreseka.novoStanje" ></input>
+	<br><br><br>
+</div>
+
+</div>
+<table class="table table-bordered" border="1">
+	<tbody>
+		<tr>
+			<th>Duznik</th>
+			<th>Racun duznika</th>
+			<th>Primalac</th>
+			<th>Racun primaoca</th>
+			<th>Iznos</th>
+			<th>Svrha placanja</th>
+		</tr>
+		<tr ng-repeat="nalog in nalozi">
+			<td>{{nalog.duznik}}</td>
+			<td>{{nalog.racunDuznika}}</td>
+			<td>{{nalog.primalac}}</td>
+			<td>{{nalog.racunPrimaoca}}</td>
+			<td>{{nalog.iznos}}</td>
+			<td>{{nalog.svrhaPlacanja}}</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<faktura>
+    <zaglavljeFakture>
+        <nazivDobavljaca>Firma002</nazivDobavljaca>
+        <adresaDobavljaca>Toze Veselinovica 14</adresaDobavljaca>
+        <PIBDobavljaca>22222222222</PIBDobavljaca>
+        <nazivKupca>Firma003</nazivKupca>
+        <adresaKupca>Rumenacka 3</adresaKupca>
+        <PIBKupca>33333333333</PIBKupca>
+        <brojRacuna>123456789012345678</brojRacuna>
+        <datumRacuna>2018-02-13</datumRacuna>
+        <vrednostRobe>23</vrednostRobe>
+        <vrednostUsluga>123</vrednostUsluga>
+        <ukupnoRobaIUsluge>34</ukupnoRobaIUsluge>
+        <ukupanRabat>12</ukupanRabat>
+        <ukupanPorez>5</ukupanPorez>
+        <oznakaValute>rsd</oznakaValute>
+        <iznosZaUplatu>2501</iznosZaUplatu>
+        <uplataNaRacun>BBB222222222222299</uplataNaRacun>
+        <datumValute>2018-02-13</datumValute>
+    </zaglavljeFakture>
+    <stavkaFakture>
+        <redniBroj>100</redniBroj>
+        <nazivRobeIliUsluge>roba 4</nazivRobeIliUsluge>
+        <kolicina>12</kolicina>
+        <jedinicaMere>lit</jedinicaMere>
+        <jedinicnaCena>123</jedinicnaCena>
+        <vrednost>34</vrednost>
+        <procenatRabata>5</procenatRabata>
+        <iznosRabata>3</iznosRabata>
+        <umanjenoZaRabat>5</umanjenoZaRabat>
+        <ukupanPorez>123</ukupanPorez>
+    </stavkaFakture>
+</faktura>

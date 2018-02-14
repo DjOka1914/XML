@@ -1,0 +1,430 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:sch0="http://mt102.com" xmlns:sch1="http://mt103.com" xmlns:sch2="http://mt900.com"
+	xmlns:sch3="http://mt910.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://NarodnaBanka.com/ws/" targetNamespace="http://NarodnaBanka.com/ws/">
+	<wsdl:types>
+		<xs:schema xmlns:nzp="http://mt102.com" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://mt102.com">
+			<xs:element name="getMT102Request">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MT102" type="nzp:MT102" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getMT102Response">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MT102" type="nzp:MT102" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="MT102">
+				<xs:sequence>
+					<xs:element ref="nzp:zaglavljeMT102" />
+					<xs:element maxOccurs="unbounded" ref="nzp:pojedinacnoPlacanjeMT102" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="zaglavljeMT102" type="nzp:ZaglavljeMT102" />
+			<xs:element name="pojedinacnoPlacanjeMT102" type="nzp:PojedinacnoPlacanjeMT102" />
+			<xs:complexType name="ZaglavljeMT102">
+				<xs:sequence>
+					<xs:element name="idPoruke" type="nzp:Str50" />
+					<xs:element name="swiftKodBankeDuznika" type="nzp:Str8" />
+					<xs:element name="obracunskiRacunBankeDuznika" type="nzp:Str18" />
+					<xs:element name="swiftKodBankePoverioca" type="nzp:Str8" />
+					<xs:element name="obracunskiRacunBankePoverioca" type="nzp:Str18" />
+					<xs:element name="ukupanIznos" type="nzp:Decimal15-2" />
+					<xs:element name="sifraValute" type="nzp:Str3" />
+					<xs:element name="datumValute" type="xs:date" />
+					<xs:element name="datum" type="xs:date" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="PojedinacnoPlacanjeMT102">
+				<xs:sequence>
+					<xs:element name="idNalogaZaPlacanje" type="nzp:Str50" />
+					<xs:element name="duznik" type="nzp:Str255" />
+					<xs:element name="svrhaPlacanja" type="nzp:Str255" />
+					<xs:element name="primalac" type="nzp:Str255" />
+					<xs:element name="datumNaloga" type="xs:date" />
+					<xs:element name="racunDuznika" type="nzp:Str18" />
+					<xs:element name="modelZaduzenja" type="nzp:Number2" />
+					<xs:element name="pozivNaBrojZaduzenja" type="nzp:Str20" />
+					<xs:element name="racunPoverioca" type="nzp:Str18" />
+					<xs:element name="modelOdobrenja" type="nzp:Number2" />
+					<xs:element name="pozivNaBrojOdobrenja" type="nzp:Str20" />
+					<xs:element name="iznos" type="nzp:Decimal15-2" />
+					<xs:element name="sifraValute" type="nzp:Str3" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="Str255">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="255" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str120">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="120" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str3">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="3" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str50">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="50" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str18">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="18" />
+					<xs:maxLength value="18" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str8">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="8" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str6">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="6" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str20">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="20" />
+					<xs:maxLength value="20" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Number3">
+				<xs:restriction base="xs:integer">
+					<xs:pattern value="\d{3}" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Number2">
+				<xs:restriction base="xs:integer">
+					<xs:pattern value="\d{2}" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Decimal15-2">
+				<xs:restriction base="xs:decimal">
+					<xs:totalDigits value="15" />
+					<xs:fractionDigits value="2" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+		<xs:schema xmlns:nzp="http://mt103.com" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://mt103.com">
+			<xs:element name="getMT103Request">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MT103" type="nzp:MT103" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getMT103Response">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MT103" type="nzp:MT103" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="MT103">
+				<xs:sequence>
+					<xs:element name="idPoruke" type="nzp:Str50" />
+					<xs:element name="swiftKodBankeDuznika" type="nzp:Str8" />
+					<xs:element name="obracunskiRacunBankeDuznika" type="nzp:Str18" />
+					<xs:element name="swiftKodBankePoverioca" type="nzp:Str8" />
+					<xs:element name="obracunskiRacunBankePoverioca" type="nzp:Str18" />
+					<xs:element name="duznik" type="nzp:Str255" />
+					<xs:element name="svrhaPlacanja" type="nzp:Str255" />
+					<xs:element name="primalac" type="nzp:Str255" />
+					<xs:element name="datumNaloga" type="xs:date" />
+					<xs:element name="datumValute" type="xs:date" />
+					<xs:element name="racunDuznika" type="nzp:Str18" />
+					<xs:element name="modelZaduzenja" type="nzp:Number2" />
+					<xs:element name="pozivNaBrojZaduzenja" type="nzp:Str20" />
+					<xs:element name="racunPoverioca" type="nzp:Str18" />
+					<xs:element name="modelOdobrenja" type="nzp:Number2" />
+					<xs:element name="pozivNaBrojOdobrenja" type="nzp:Str20" />
+					<xs:element name="iznos" type="nzp:Decimal15-2" />
+					<xs:element name="sifraValute" type="nzp:Str3" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="Number2">
+				<xs:restriction base="xs:integer">
+					<xs:pattern value="\d{2}" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Decimal15-2">
+				<xs:restriction base="xs:decimal">
+					<xs:totalDigits value="15" />
+					<xs:fractionDigits value="2" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str255">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="255" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str50">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="50" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str18">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="18" />
+					<xs:maxLength value="18" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str8">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="8" />
+					<xs:maxLength value="8" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str20">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="20" />
+					<xs:maxLength value="20" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str3">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="3" />
+					<xs:maxLength value="3" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+		<xs:schema xmlns:nzp="http://mt900.com" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://mt900.com">
+			<xs:element name="getMT900Request">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MT900" type="nzp:MT900" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getMT900Response">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MT900" type="nzp:MT900" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="MT900">
+				<xs:sequence>
+					<xs:element name="idPoruke" type="nzp:Str50" />
+					<xs:element name="swiftKodBankeDuznika" type="nzp:Str8" />
+					<xs:element name="obracunskiRacunBankeDuznika" type="nzp:Str18" />
+					<xs:element name="idPorukeNaloga" type="nzp:Str50" />
+					<xs:element name="datumValute" type="xs:date" />
+					<xs:element name="iznos" type="nzp:Decimal15-2" />
+					<xs:element name="sifraValute" type="nzp:Str3" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="Decimal15-2">
+				<xs:restriction base="xs:decimal">
+					<xs:totalDigits value="15" />
+					<xs:fractionDigits value="2" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str50">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="50" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str18">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="18" />
+					<xs:maxLength value="18" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str8">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="8" />
+					<xs:maxLength value="8" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str3">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="3" />
+					<xs:maxLength value="3" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+		<xs:schema xmlns:nzp="http://mt910.com" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://mt910.com">
+			<xs:element name="getMT910Request">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MT910" type="nzp:MT910" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getMT910Response">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="MT910" type="nzp:MT910" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:simpleType name="Str18">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="18" />
+					<xs:maxLength value="18" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str255">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="255" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Number2">
+				<xs:restriction base="xs:integer">
+					<xs:pattern value="\d{2}" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:complexType name="MT910">
+				<xs:sequence>
+					<xs:element name="idPoruke" type="nzp:Str50" />
+					<xs:element name="swiftKodBankePoverioca" type="nzp:Str8" />
+					<xs:element name="obracunskiRacunBankePoverioca" type="nzp:Str18" />
+					<xs:element name="idPorukeNaloga" type="nzp:Str50" />
+					<xs:element name="datumValute" type="xs:date" />
+					<xs:element name="iznos" type="nzp:Decimal15-2" />
+					<xs:element name="sifraValute" type="nzp:Str3" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType name="Decimal15-2">
+				<xs:restriction base="xs:decimal">
+					<xs:totalDigits value="15" />
+					<xs:fractionDigits value="2" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str50">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1" />
+					<xs:maxLength value="50" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str8">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="8" />
+					<xs:maxLength value="8" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType name="Str3">
+				<xs:restriction base="xs:string">
+					<xs:minLength value="3" />
+					<xs:maxLength value="3" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="getMT103Response">
+		<wsdl:part element="sch1:getMT103Response" name="getMT103Response"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getMT910Response">
+		<wsdl:part element="sch3:getMT910Response" name="getMT910Response"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getMT102Response">
+		<wsdl:part element="sch0:getMT102Response" name="getMT102Response"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getMT102Request">
+		<wsdl:part element="sch0:getMT102Request" name="getMT102Request"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getMT103Request">
+		<wsdl:part element="sch1:getMT103Request" name="getMT103Request"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getMT900Request">
+		<wsdl:part element="sch2:getMT900Request" name="getMT900Request"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getMT910Request">
+		<wsdl:part element="sch3:getMT910Request" name="getMT910Request"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getMT900Response">
+		<wsdl:part element="sch2:getMT900Response" name="getMT900Response"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="NarodnaBankaPort">
+		<wsdl:operation name="getMT103">
+			<wsdl:input message="tns:getMT103Request" name="getMT103Request"></wsdl:input>
+			<wsdl:output message="tns:getMT103Response" name="getMT103Response"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getMT910">
+			<wsdl:input message="tns:getMT910Request" name="getMT910Request"></wsdl:input>
+			<wsdl:output message="tns:getMT910Response" name="getMT910Response"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getMT102">
+			<wsdl:input message="tns:getMT102Request" name="getMT102Request"></wsdl:input>
+			<wsdl:output message="tns:getMT102Response" name="getMT102Response"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getMT900">
+			<wsdl:input message="tns:getMT900Request" name="getMT900Request"></wsdl:input>
+			<wsdl:output message="tns:getMT900Response" name="getMT900Response"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="NarodnaBankaPortSoap11" type="tns:NarodnaBankaPort">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getMT103">
+			<soap:operation soapAction="" />
+			<wsdl:input name="getMT103Request">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getMT103Response">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getMT910">
+			<soap:operation soapAction="" />
+			<wsdl:input name="getMT910Request">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getMT910Response">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getMT102">
+			<soap:operation soapAction="" />
+			<wsdl:input name="getMT102Request">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getMT102Response">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getMT900">
+			<soap:operation soapAction="" />
+			<wsdl:input name="getMT900Request">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getMT900Response">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="NarodnaBankaPortService">
+		<wsdl:port binding="tns:NarodnaBankaPortSoap11" name="NarodnaBankaPortSoap11">
+			<soap:address location="http://localhost:9000/ws" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

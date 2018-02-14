@@ -1,0 +1,637 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:sch0="http://nalog.com" xmlns:sch1="http://presek.com"
+	xmlns:sch2="http://zahtevZaDobijanjeIzvoda.com" xmlns:sch3="http://zahtevZaDobijanjeNaloga.com"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://Firma.com/ws/"
+	targetNamespace="http://Firma.com/ws/">
+	<wsdl:types xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:nzp="http://nalog.com" attributeFormDefault="unqualified"
+			elementFormDefault="qualified" targetNamespace="http://nalog.com">
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="getNalogRequest">
+				<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+							name="nalog" type="nzp:nalog" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="getNalogResponse">
+				<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+							name="nalog" type="nzp:nalog" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="nalog">
+				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="idPoruke" type="nzp:Str50" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="duznik" type="nzp:Str255" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="svrhaPlacanja" type="nzp:Str255" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="primalac" type="nzp:Str255" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="datumNaloga" type="xs:date" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="datumValute" type="xs:date" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="racunDuznika" type="nzp:Str18" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="modelZaduzenja" type="nzp:Number2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="pozivNaBrojZaduzenja" type="nzp:Str20" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="racunPrimaoca" type="nzp:Str18" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="modelOdobrenja" type="nzp:Number2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="pozivNaBrojOdobrenja" type="nzp:Str20" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="iznos" type="nzp:Decimal15-2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="oznakaValute" type="nzp:Str3" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="hitno" type="xs:boolean" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Number20">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:integer">
+					<xs:pattern xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="\d{20}" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Number2">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:integer">
+					<xs:pattern xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="\d{2}" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Decimal15-2">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:decimal">
+					<xs:totalDigits xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="15" />
+					<xs:fractionDigits xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="2" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str255">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="1" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="255" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str50">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="1" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="50" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str18">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="18" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="18" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str20">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="20" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="20" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str3">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="3" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="3" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:nzp="http://presek.com" attributeFormDefault="unqualified"
+			elementFormDefault="qualified" targetNamespace="http://presek.com">
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="getPresekRequest">
+				<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+							name="presek" type="nzp:presek" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="getPresekResponse">
+				<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+							name="presek" type="nzp:presek" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="presek">
+				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						ref="nzp:zaglavljePreseka" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						maxOccurs="unbounded" ref="nzp:stavkaPreseka" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="zaglavljePreseka" type="nzp:ZaglavljePreseka" />
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="stavkaPreseka" type="nzp:StavkaPreseka" />
+			<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="ZaglavljePreseka">
+				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="brojRacuna" type="nzp:Str18" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="datumNaloga" type="xs:date" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="brojPreseka" type="nzp:Number2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="prethodnoStanje" type="nzp:Decimal15-2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="brojPromenaUKorist" type="nzp:AccountNumber" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="ukupnoUKorist" type="nzp:Decimal15-2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="brojPromenaNaTeret" type="nzp:AccountNumber" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="ukupnoNaTeret" type="nzp:Decimal15-2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="novoStanje" type="nzp:Decimal15-2" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="StavkaPreseka">
+				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="duznik" type="nzp:Str255" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="svrhaPlacanja" type="nzp:Str255" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="primalac" type="nzp:Str255" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="datumNaloga" type="xs:date" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="datumValute" type="xs:date" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="racunDuznika" type="nzp:Str18" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="modelZaduzenja" type="nzp:Number2len" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="pozivNaBrojZaduzenja" type="nzp:Str20" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="racunPrimaoca" type="nzp:Str18" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="modelOdobrenja" type="nzp:Number2len" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="pozivNaBrojOdobrenja" type="nzp:Str20" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="iznos" type="nzp:Decimal15-2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="smer" type="nzp:Str1" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Number2">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:integer">
+					<xs:minInclusive xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="0" />
+					<xs:maxInclusive xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="99" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Number2len">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:integer">
+					<xs:pattern xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="\d{2}" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str255">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="1" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="255" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str1">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="1" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="1" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str18">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="1" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="18" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str20">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="1" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="20" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="AccountNumber">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:integer">
+					<xs:minInclusive xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="0" />
+					<xs:maxInclusive xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="999999" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Decimal15-2">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:decimal">
+					<xs:totalDigits xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="15" />
+					<xs:fractionDigits xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="2" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:nzp="http://zahtevZaDobijanjeIzvoda.com" attributeFormDefault="unqualified"
+			elementFormDefault="qualified" targetNamespace="http://zahtevZaDobijanjeIzvoda.com">
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="getZahtevZaDobijanjeIzvodaRequest">
+				<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+							name="zahtevZaDobijanjeIzvoda" type="nzp:zahtevZaDobijanjeIzvoda" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="getZahtevZaDobijanjeIzvodaResponse">
+				<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+							name="zahtevZaDobijanjeIzvoda" type="nzp:zahtevZaDobijanjeIzvoda" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="zahtevZaDobijanjeIzvoda">
+				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="brojRacuna" type="nzp:Str18" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="datum" type="xs:date" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="redniBrojPreseka" type="nzp:Number2" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Number2">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:integer">
+					<xs:pattern xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="\d{2}" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str18">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="18" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="18" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:nzp="http://zahtevZaDobijanjeNaloga.com" attributeFormDefault="unqualified"
+			elementFormDefault="qualified" targetNamespace="http://zahtevZaDobijanjeNaloga.com">
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="getZahtevZaDobijanjeNalogaRequest">
+				<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+							name="zahtevZaDobijanjeNaloga" type="nzp:zahtevZaDobijanjeNaloga" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="getZahtevZaDobijanjeNalogaResponse">
+				<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+						<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+							maxOccurs="unbounded" ref="nzp:nalogg" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="nalogg" type="nzp:Nalogg" />
+			<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Nalogg">
+				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="idPoruke" type="nzp:Str50" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="duznik" type="nzp:Str255" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="svrhaPlacanja" type="nzp:Str255" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="primalac" type="nzp:Str255" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="datumNaloga" type="xs:date" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="datumValute" type="xs:date" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="racunDuznika" type="nzp:Str18" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="modelZaduzenja" type="nzp:Number2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="pozivNaBrojZaduzenja" type="nzp:Str20" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="racunPrimaoca" type="nzp:Str18" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="modelOdobrenja" type="nzp:Number2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="pozivNaBrojOdobrenja" type="nzp:Str20" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="iznos" type="nzp:Decimal15-2" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="oznakaValute" type="nzp:Str3" />
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="hitno" type="xs:boolean" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="zahtevZaDobijanjeNaloga">
+				<xs:sequence xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						name="brojRacuna" type="nzp:Str18" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Decimal15-2">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:decimal">
+					<xs:totalDigits xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="15" />
+					<xs:fractionDigits xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="2" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Number2">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:integer">
+					<xs:pattern xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="\d{2}" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str20">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="20" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="20" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str3">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="3" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="3" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str50">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="1" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="50" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str18">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="18" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="18" />
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema"
+				name="Str255">
+				<xs:restriction xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					base="xs:string">
+					<xs:minLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="1" />
+					<xs:maxLength xmlns:xs="http://www.w3.org/2001/XMLSchema"
+						value="255" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="getPresekResponse">
+		<wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			element="sch1:getPresekResponse" name="getPresekResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="getZahtevZaDobijanjeNalogaResponse">
+		<wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			element="sch3:getZahtevZaDobijanjeNalogaResponse" name="getZahtevZaDobijanjeNalogaResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="getPresekRequest">
+		<wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			element="sch1:getPresekRequest" name="getPresekRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="getZahtevZaDobijanjeIzvodaRequest">
+		<wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			element="sch2:getZahtevZaDobijanjeIzvodaRequest" name="getZahtevZaDobijanjeIzvodaRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="getNalogResponse">
+		<wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			element="sch0:getNalogResponse" name="getNalogResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="getZahtevZaDobijanjeNalogaRequest">
+		<wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			element="sch3:getZahtevZaDobijanjeNalogaRequest" name="getZahtevZaDobijanjeNalogaRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="getNalogRequest">
+		<wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			element="sch0:getNalogRequest" name="getNalogRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="getZahtevZaDobijanjeIzvodaResponse">
+		<wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			element="sch2:getZahtevZaDobijanjeIzvodaResponse" name="getZahtevZaDobijanjeIzvodaResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="FirmaPort">
+		<wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			name="getPresek">
+			<wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				message="tns:getPresekRequest" name="getPresekRequest"></wsdl:input>
+			<wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				message="tns:getPresekResponse" name="getPresekResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			name="getZahtevZaDobijanjeNaloga">
+			<wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				message="tns:getZahtevZaDobijanjeNalogaRequest" name="getZahtevZaDobijanjeNalogaRequest"></wsdl:input>
+			<wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				message="tns:getZahtevZaDobijanjeNalogaResponse" name="getZahtevZaDobijanjeNalogaResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			name="getZahtevZaDobijanjeIzvoda">
+			<wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				message="tns:getZahtevZaDobijanjeIzvodaRequest" name="getZahtevZaDobijanjeIzvodaRequest"></wsdl:input>
+			<wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				message="tns:getZahtevZaDobijanjeIzvodaResponse" name="getZahtevZaDobijanjeIzvodaResponse"></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			name="getNalog">
+			<wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				message="tns:getNalogRequest" name="getNalogRequest"></wsdl:input>
+			<wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				message="tns:getNalogResponse" name="getNalogResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="FirmaPortSoap11" type="tns:FirmaPort">
+		<soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+			style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			name="getPresek">
+			<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				soapAction="" />
+			<wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				name="getPresekRequest">
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				name="getPresekResponse">
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+					use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			name="getZahtevZaDobijanjeNaloga">
+			<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				soapAction="" />
+			<wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				name="getZahtevZaDobijanjeNalogaRequest">
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				name="getZahtevZaDobijanjeNalogaResponse">
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+					use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			name="getZahtevZaDobijanjeIzvoda">
+			<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				soapAction="" />
+			<wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				name="getZahtevZaDobijanjeIzvodaRequest">
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				name="getZahtevZaDobijanjeIzvodaResponse">
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+					use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			name="getNalog">
+			<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				soapAction="" />
+			<wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				name="getNalogRequest">
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+					use="literal" />
+			</wsdl:input>
+			<wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				name="getNalogResponse">
+				<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+					use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		name="FirmaPortService">
+		<wsdl:port xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+			binding="tns:FirmaPortSoap11" name="FirmaPortSoap11">
+			<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				location="http://localhost:5001/ws" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

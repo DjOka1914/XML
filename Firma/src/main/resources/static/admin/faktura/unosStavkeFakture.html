@@ -1,0 +1,35 @@
+<div class ="whole-bill-form"/>
+<form name = "createNewIndividual">
+	<label>Zaglavlje {{sacuvanoZaglavlje.id}}</label>
+	<label>Naziv robe ili usluge</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.stavkaFakture.nazivRobeIliUsluge" ></input>
+	
+	<label>Kolicina</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.stavkaFakture.kolicina" ></input>
+	
+	<label>Jedinica mere</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.stavkaFakture.jedinicaMere" ></input>
+	
+	<label>Jedinicna cena</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.stavkaFakture.jedinicnaCena" ></input>
+	
+	<label>Vrednost</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.stavkaFakture.vrednost" ></input>
+	
+	<label>Procenat rabata</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.stavkaFakture.procenatRabata" ></input>
+	
+	<label>Iznos rabata</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.stavkaFakture.iznosRabata" ></input>
+	
+	<label>Umanjeno za rabat</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.stavkaFakture.umanjenoZaRabat" ></input>
+	
+	<label>Ukupan porez</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.stavkaFakture.ukupanPorez" ></input>
+
+<button class = "btn btn-default" ng-click = "saveStavkaFakture()"><span class = "glyphicon glyphicon-plus"></span>  Sacuvaj stavku</button>
+<button class = "btn btn-default" ng-click = "cancel()"><span class = "glyphicon glyphicon-remove"></span>  Odustani</button>
+
+</form>
+</div>

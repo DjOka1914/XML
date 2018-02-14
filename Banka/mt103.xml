@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<getMT103Request xmlns="http://mt103.com">
+    <MT103>
+        <idPoruke>596037f4-d9bb-4837-a830-08769c681557</idPoruke>
+        <swiftKodBankeDuznika>AAAIOI11</swiftKodBankeDuznika>
+        <obracunskiRacunBankeDuznika>QQQ777777777777777</obracunskiRacunBankeDuznika>
+        <swiftKodBankePoverioca>BBBIII22</swiftKodBankePoverioca>
+        <obracunskiRacunBankePoverioca>WWW777777777777777</obracunskiRacunBankePoverioca>
+        <duznik>Firma001</duznik>
+        <svrhaPlacanja>prodaja</svrhaPlacanja>
+        <primalac>Firma002</primalac>
+        <datumNaloga>2018-02-13</datumNaloga>
+        <datumValute>2018-02-13</datumValute>
+        <racunDuznika>AAA111111111111199</racunDuznika>
+        <modelZaduzenja>97</modelZaduzenja>
+        <pozivNaBrojZaduzenja>11111111111111111111</pozivNaBrojZaduzenja>
+        <racunPoverioca>BBB222222222222299</racunPoverioca>
+        <modelOdobrenja>97</modelOdobrenja>
+        <pozivNaBrojOdobrenja>22222222222222222222</pozivNaBrojOdobrenja>
+        <iznos>300100</iznos>
+        <sifraValute>rsd</sifraValute>
+    </MT103>
+</getMT103Request>

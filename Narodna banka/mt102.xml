@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<getMT102Request xmlns="http://mt102.com">
+    <MT102>
+        <zaglavljeMT102>
+            <idPoruke>85906de1-6d65-4e73-abb0-e4a32cb81f6c</idPoruke>
+            <swiftKodBankeDuznika>BBBIII22</swiftKodBankeDuznika>
+            <obracunskiRacunBankeDuznika>WWW777777777777777</obracunskiRacunBankeDuznika>
+            <swiftKodBankePoverioca>AAAIOI11</swiftKodBankePoverioca>
+            <obracunskiRacunBankePoverioca>QQQ777777777777777</obracunskiRacunBankePoverioca>
+            <ukupanIznos>300.25</ukupanIznos>
+            <sifraValute>RSD</sifraValute>
+            <datumValute>2018-02-12</datumValute>
+            <datum>2018-02-13</datum>
+        </zaglavljeMT102>
+        <pojedinacnoPlacanjeMT102>
+            <idNalogaZaPlacanje>85906de1-6d65-4e73-abb0-e4a32cb81f6c</idNalogaZaPlacanje>
+            <duznik>Firma002</duznik>
+            <svrhaPlacanja>prodaja</svrhaPlacanja>
+            <primalac>Firma001</primalac>
+            <datumNaloga>2018-02-12</datumNaloga>
+            <racunDuznika>BBB222222222222299</racunDuznika>
+            <modelZaduzenja>97</modelZaduzenja>
+            <pozivNaBrojZaduzenja>11111111111111111111</pozivNaBrojZaduzenja>
+            <racunPoverioca>AAA111111111111199</racunPoverioca>
+            <modelOdobrenja>97</modelOdobrenja>
+            <pozivNaBrojOdobrenja>22222222222222222222</pozivNaBrojOdobrenja>
+            <iznos>300.25</iznos>
+            <sifraValute>RSD</sifraValute>
+        </pojedinacnoPlacanjeMT102>
+    </MT102>
+</getMT102Request>

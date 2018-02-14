@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://presek.com" xmlns:nzp="http://presek.com">
+
+
+
+    <xs:element name="getPresekRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="presek" type="nzp:presek"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getPresekResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="presek" type="nzp:presek"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:complexType name="presek">
+        <xs:sequence>
+            <xs:element ref="nzp:zaglavljePreseka"/>
+            <xs:element ref="nzp:stavkaPreseka" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="zaglavljePreseka" type="nzp:ZaglavljePreseka"> </xs:element>
+
+    <xs:element name="stavkaPreseka" type="nzp:StavkaPreseka"> </xs:element>
+
+    <xs:complexType name="ZaglavljePreseka">
+        <xs:sequence>
+            <xs:element name="brojRacuna" type="nzp:Str18"/>
+            <xs:element name="datumNaloga" type="xs:date"/>
+            <xs:element name="brojPreseka" type="nzp:Number2"/>
+            <xs:element name="prethodnoStanje" type="nzp:Decimal15-2"/>
+            <xs:element name="brojPromenaUKorist" type="nzp:AccountNumber"/>
+            <!-- type="nzp:AccountNumber" -->
+            <xs:element name="ukupnoUKorist" type="nzp:Decimal15-2"/>
+            <xs:element name="brojPromenaNaTeret" type="nzp:AccountNumber"/>
+            <!-- type="nzp:AccountNumber" -->
+            <xs:element name="ukupnoNaTeret" type="nzp:Decimal15-2"/>
+            <xs:element name="novoStanje" type="nzp:Decimal15-2"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+    <xs:complexType name="StavkaPreseka">
+        <xs:sequence>
+            <xs:element name="duznik" type="nzp:Str255"/>
+            <xs:element name="svrhaPlacanja" type="nzp:Str255"/>
+            <xs:element name="primalac" type="nzp:Str255"/>
+            <xs:element name="datumNaloga" type="xs:date"/>
+            <xs:element name="datumValute" type="xs:date"/>
+            <xs:element name="racunDuznika" type="nzp:Str18"/>
+            <xs:element name="modelZaduzenja" type="nzp:Number2len"/>
+            <xs:element name="pozivNaBrojZaduzenja" type="nzp:Str20"/>
+
+            <xs:element name="racunPrimaoca" type="nzp:Str18"/>
+            <xs:element name="modelOdobrenja" type="nzp:Number2len"/>
+            <xs:element name="pozivNaBrojOdobrenja" type="nzp:Str20"/>
+            <xs:element name="iznos" type="nzp:Decimal15-2"/>
+            <xs:element name="smer" type="nzp:Str1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+    <xs:simpleType name="Number2">
+        <xs:restriction base="xs:integer">
+        	<xs:minInclusive value="0"/>
+            <xs:maxInclusive value="99"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="Number2len">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType> 
+
+    <xs:simpleType name="Str255">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Str1">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="Str18">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="18"/>
+            <xs:maxLength value="18"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name="Str20">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="20"/>
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+    <xs:simpleType name="AccountNumber">
+        <xs:restriction base="xs:integer">
+        	<xs:minInclusive value="0"/>
+            <xs:maxInclusive value="999999"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+
+    <xs:simpleType name="Decimal15-2">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="15"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+
+</xs:schema>

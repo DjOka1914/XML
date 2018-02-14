@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<getMT910Request xmlns="http://mt910.com">
+    <MT910>
+        <idPoruke>e9ac85bb-83d1-4ded-aef0-1279d239d66a</idPoruke>
+        <swiftKodBankePoverioca>BBBIII22</swiftKodBankePoverioca>
+        <obracunskiRacunBankePoverioca>WWW777777777777777</obracunskiRacunBankePoverioca>
+        <idPorukeNaloga>596037f4-d9bb-4837-a830-08769c681557</idPorukeNaloga>
+        <datumValute>2018-02-13</datumValute>
+        <iznos>300100</iznos>
+        <sifraValute>rsd</sifraValute>
+    </MT910>
+</getMT910Request>

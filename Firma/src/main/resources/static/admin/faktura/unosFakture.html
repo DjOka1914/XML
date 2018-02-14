@@ -1,0 +1,97 @@
+<div class ="whole-bill-form"/>
+
+<form name = "createNewIndividual">
+
+	<label>Naziv dobavljaca</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.nazivDobavljaca" ng-init="$parent.zaglavljeFakture.nazivDobavljaca=admin.firma.naziv" ></input>
+	
+	<label>Adresa dobavljaca</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.adresaDobavljaca" ng-init="$parent.zaglavljeFakture.adresaDobavljaca=admin.firma.adresa"></input>
+	
+	<label>PIB dobavljaca</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.pibDobavljaca" ng-init="$parent.zaglavljeFakture.pibDobavljaca=admin.firma.pib"></input>
+	
+	<label>Naziv kupca</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.nazivKupca" ></input>
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#izaberiKupca"> ... </button>
+	
+	<label>Adresa kupca</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.adresaKupca" ></input>
+	
+	<label>PIB kupca</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.pibKupca" ></input>
+	
+	<label>Broj racuna</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.brojRacuna"></input>
+	
+	<label>Datum racuna</label>
+	<input type = "date" class = "form-control" ng-model = "$parent.zaglavljeFakture.datumRacuna" ></input>
+	
+	<label>Vrednost robe</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.vrednostRobe" ></input>
+	
+	<label>Vrednost usluga</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.vrednostUsluga" ></input>
+	
+	<label>Ukupno roba i usluge</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.ukupnoRobaIUsluge" ></input>
+	
+	<label>Ukupan rabat</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.ukupanRabat" ></input>
+	
+	<label>Ukupan porez</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.ukupanPorez" ></input>
+	
+	<label>Oznaka valute</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.oznakaValute" ></input>
+	
+	<label>Iznos za uplatu</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.iznosZaUplatu" ></input>
+	
+	<label>Uplata na racun</label>
+	<input type = "text" class = "form-control" ng-model = "$parent.zaglavljeFakture.uplataNaRacun"  ng-init="$parent.zaglavljeFakture.uplataNaRacun=admin.firma.racun.brojRacuna"></input>
+	
+	<label>Datum valute</label>
+	<input type = "date" class = "form-control" ng-model = "$parent.zaglavljeFakture.datumValute" ></input>
+	
+
+<button class = "btn btn-default" ng-click = "saveZaglavljeFakture()"><span class = "glyphicon glyphicon-plus"></span>  Sacuvaj zaglavlje</button>
+<button class = "btn btn-default" ng-click = "cancel()"><span class = "glyphicon glyphicon-remove"></span>  Odustani</button>
+<!--  style="color:black;" -->
+<div id="izaberiKupca" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" >Izaberi kupca</h4>
+      </div>
+      <div class="modal-body" ng-init="findAllPoslovniSaradnici()">
+     <table class="table table-bordered table-hover" border="1">
+		<tbody>
+			<tr>
+				<th>Naziv</th>
+				<th>Adresa</th>
+				<th>PIB</th>
+			</tr>
+			<tr ng-repeat="ps in allPoslovniSaradnici" id="{{ps.id}}" ng-click="setSelected(ps.id,ps.naziv,ps.adresa,ps.pib);">
+				<td>{{ps.naziv}}</td>
+				<td>{{ps.adresa}}</td>
+				<td>{{ps.pib}}</td>
+				</tr>
+		</tbody>
+		</table>
+        
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" ng-click = "" class="btn btn-default" data-dismiss="modal">OK</button>
+     	<button type="button" ng-click = "" class="btn btn-default" data-dismiss="modal">CANCEL</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</form>
+</div>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <xs:element name="faktura">
+        <xs:complexType>
+            <xs:sequence>
+            <xs:element ref="zaglavljeFakture"/>
+            <xs:element ref="stavkaFakture" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    
+ <xs:element name="zaglavljeFakture" type="ZaglavljeFakture">
+     
+ </xs:element>
+
+    <xs:element name="stavkaFakture" type="StavkaFakture">
+    </xs:element>
+
+    <xs:complexType name="ZaglavljeFakture">
+        <xs:sequence>
+            <xs:element name="nazivDobavljaca" type="Str255"/>
+            <xs:element name="adresaDobavljaca" type="Str255"/>
+            <xs:element name="PIBDobavljaca" type="PIB" />
+            <xs:element name="nazivKupca" type="Str55"/>
+            <xs:element name="adresaKupca" type="Str55"/>
+            <xs:element name="PIBKupca" type="PIB"/>
+            <xs:element name="brojRacuna" type="AccountNumber"/>
+            <xs:element name="datumRacuna" type="xs:date"/>
+            <xs:element name="vrednostRobe" type="Decimal12-2"/>
+            <xs:element name="vrednostUsluga" type="Decimal12-2"/>
+            <xs:element name="ukupnoRobaIUsluge" type="Decimal12-2"/>
+            <xs:element name="ukupanRabat" type="Decimal12-2"/> 
+            <xs:element name="ukupanPorez" type="Decimal12-2"/>
+            <xs:element name="oznakaValute" type="Str3"/>
+            <xs:element name="iznosZaUplatu" type="Decimal12-2"/>
+            <xs:element name="uplataNaRacun" type="Str18"/>
+            <xs:element name="datumValute" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+    
+    
+    <xs:complexType name="StavkaFakture">
+        <xs:sequence>
+            <xs:element name="redniBroj" type="Number3"/>
+            <xs:element name="nazivRobeIliUsluge" type="Str120"/>
+            <xs:element name="kolicina" type="Decimal10-2"/>
+            <xs:element name="jedinicaMere" type="Str6"/>
+            <xs:element name="jedinicnaCena" type="Decimal10-2"/>
+            <xs:element name="vrednost" type="Decimal12-2"/>
+            <xs:element name="procenatRabata" type="Decimal15-2"/>
+            <xs:element name="iznosRabata" type="Decimal12-2"/>
+            <xs:element name="umanjenoZaRabat" type="Decimal12-2"/>
+            <xs:element name="ukupanPorez" type="Decimal12-2"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+    
+    
+    
+        
+    <xs:simpleType name="Str255">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="Str120">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="Str3">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="Str55">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="55"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="Str18">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="18"/>
+            <xs:maxLength value="18"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="Str6">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="PIB">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="11"/>
+            <xs:maxLength value="11"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="AccountNumber">
+            <xs:restriction base="xs:string">
+            <xs:minLength value="18"/>
+            <xs:maxLength value="18"/>
+        </xs:restriction>
+    </xs:simpleType> 
+    
+    
+    <xs:simpleType name="Number3">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{3}"/>
+        </xs:restriction>
+    </xs:simpleType> 
+    
+    <xs:simpleType name="Decimal12-2">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType> 
+    
+    
+    <xs:simpleType name="Decimal10-2">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="10"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType> 
+    
+    
+    <xs:simpleType name="Decimal15-2">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="15"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType> 
+    
+    
+
+
+
+    
+
+</xs:schema>

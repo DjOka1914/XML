@@ -1,0 +1,256 @@
+.bg{
+	color: white;
+	background: url(images/background.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+button {
+	color : white; 
+	background : green; 
+}
+
+.dropdown-toggle {
+	cursor: pointer;
+}
+
+.excchangeRateSearch {
+	margin-left : 130px;
+	margin-top : 40px;
+}
+
+.selectedRow{
+    background: #0000ff; 
+}
+
+table {
+	cursor : pointer;
+	background : #5555ff; 
+}
+
+.btn{
+    color:white;
+    background: green; 
+}
+
+.btn:hover { 
+    background: #22ff77; 
+}
+
+.table{
+	background-color: #000077; 
+ 	border: 3px solid #eeefe6; 
+ }
+ 
+ .tr:hover {
+ 	background: #0011ff; 
+ }
+ 
+ .tableExchangeDetails {
+ 	margin-left :120px;
+ 	margin-top : 20px;
+}
+
+.loginForm {
+	width : 25%;
+	margin-left : 500px;
+	margin-top : 200px;
+}
+
+.caption {
+ 	border: 3px solid #eeefe6;
+	border-bottom : 0px;
+	font-size : 20px;
+	background-color: #8c8c8c;
+}
+
+.exchangeInCurrencyTable {
+	width : 30%	
+}
+
+.choseCountryButton{
+	margin-top : -55px;
+	margin-left : 220px;
+}
+
+
+.chooseActivityButton{
+	margin-top : -57px;
+ 	margin-left : 250px; 
+}
+
+
+.whole-bill-form {
+ margin-right : 30px;  
+  margin-left : 380px;
+}
+.left-bill-form {
+  	width : 30%;
+  
+}
+.right-bill-form {
+  float:right;
+  width : 30%;
+   margin-right : 350px; 
+  
+}
+.individual-bill-form {  
+  margin-left : 320px;
+  width : 20%;
+}
+.span-radio-buttons {
+  	margin-left : 85px;
+}
+
+.form-control {
+  	width : 65%;
+}
+
+.infoLabel {
+	padding: 0px;
+}
+
+.bigerLabel {
+  	width : 85%;
+  	height: 60px;
+}
+
+.addExchangeRatePartal {
+	margin-right : 150px;
+	width : 30%;
+	margin-top : 30px;
+}
+
+
+.formForAddExchangeRate {
+	border-color: red;
+	border-width : 10px;
+	width: 600px;
+	margin-left : 150px;
+}
+
+input{
+	color : black;
+}
+
+.formForAddExchangeRate {
+	border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    padding: 5px;
+    width: 80%;
+    margin-top: 20px;
+	background-color: #8c8c8c;
+ 	border: 3px solid #eeefe6;
+}
+.addExchangeRateInputWidth {
+	width : 50px;
+}
+
+
+.rightSideOfDepositSlip {
+	float:right;	
+	margin-right: 250px;
+	width : 30%;
+}
+
+.leftSideOfDepositSlip {
+	margin-left: 250px;
+	float:left;
+	width : 30%;
+}
+
+.buttonsDepositSlip {
+	padding-top : 100px;
+	margin-left: 720px;	
+}
+
+.checkboxHidden{
+		visibility: hidden;
+}
+
+.checkboxTwo {
+	width: 190px;
+	height: 35px;
+	background: white;
+	margin-top : 20px;
+	border-radius: 50px;
+	position: relative;
+}
+
+.checkboxTwo:before {
+	content: '';
+	position: absolute;
+	top: 15px;
+	left: -44px;
+	height: 2px;
+	width: 160px;
+	background: #111;
+	margin-left : 60px;
+}
+
+.checkboxTwo label {
+	display: block;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: -39px;
+	margin-left : 15px;
+	margin-top : 45px;
+	z-index: 1;
+	background: red;
+}
+
+.checkboxTwo input[type=checkbox]:checked + label {
+	left: 145px;
+	background: #26ca28;
+}
+
+.code3Num {
+	width : 15%;
+}
+
+.inputAfter3Num {
+	width : 45%;
+	float : right;
+	margin-right: 150px;
+	margin-top : -34px;
+}
+
+.labelAfterCode{
+	margin-left : 14px;
+}
+
+.dates {
+	margin-top : 50px;
+}
+
+.depositSlipDateDiv{ 
+	width: 20%;
+	float : left;
+	margin-left: 350px;
+}
+
+
+.currencySlipDateDiv{ 
+	width: 20%;
+	float : right;
+	margin-right: 390px;
+}
+
+.selectTypeOfDepositSLip {
+	width : 20%;
+	margin-left : 250px;
+}
+
+.dailyState {
+	 resize: none;
+	 background: #8c8c8c;
+}
+
+

@@ -1,0 +1,18 @@
+ <nav class="navbar navbar-inverse" role="navigation"> 
+      <ul class="nav navbar-nav">
+           <li><a>MANAGE YOUR COMPANY EASILY AND SAFE</a></li>
+      </ul>
+ </nav>
+ 
+<div class="center">
+	<form  class = "loginForm" name = "loginForm">
+		<label>E-mail</label><br/>
+		<input name = "email" type="mail" ng-model = "$parent.user.mail" class="form-control"  required><br/>  
+		
+		<label>Password</label><br/>
+		<input name = "password" type="password" ng-model = "$parent.user.password" class="form-control"  required></br><br/>
+		
+		<button class="btn btn-default" ng-click="loginForm.$valid && submitLogin()"><span class="glyphicon glyphicon-ok"></span> Log In </button>
+	</form>
+</div>
+

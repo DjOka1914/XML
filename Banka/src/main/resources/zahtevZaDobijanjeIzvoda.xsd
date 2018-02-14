@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" targetNamespace="http://zahtevZaDobijanjeIzvoda.com"
+	xmlns:nzp="http://zahtevZaDobijanjeIzvoda.com">
+    
+    
+    <xs:element name="getZahtevZaDobijanjeIzvodaRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="zahtevZaDobijanjeIzvoda" type="nzp:zahtevZaDobijanjeIzvoda" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="getZahtevZaDobijanjeIzvodaResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="zahtevZaDobijanjeIzvoda" type="nzp:zahtevZaDobijanjeIzvoda" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    
+    <xs:complexType name="zahtevZaDobijanjeIzvoda">
+   
+            <xs:sequence>
+                <xs:element name="brojRacuna" type="nzp:Str18"/>
+                <xs:element name="datum" type="xs:date"/>
+                <xs:element name="redniBrojPreseka" type="nzp:Number2"/>
+                
+            </xs:sequence>
+        </xs:complexType>
+   
+    
+
+    
+    <xs:simpleType name="Number2">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType> 
+    
+ 
+    
+    <xs:simpleType name="Str18">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="18"/>
+            <xs:maxLength value="18"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+    
+
+</xs:schema>
